@@ -1,0 +1,154 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ela Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <base href="/" />
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/themify-icons.css">
+<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css"><link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/txsign.js"></script>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+</head>
+<body ng-app="txsign" ng-controller="txsignCtrl">
+    <!-- Left Panel -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menu-title">债务凭证管理</li><!-- /.menu-title -->
+                    <li>
+                        <a href="/home"><i class="menu-icon fa fa-laptop"></i>概览</a>
+                    </li>
+                    <li >
+                        <a href="htmls/home/txcreate.html"> <i class="menu-icon fa fa-cloud-upload"></i>发起交易</a>
+                    </li>
+                    <li>
+                        <a href="htmls/home/txtrans.html"> <i class="menu-icon fa fa-mail-forward"></i>债权转让</a>
+                    </li>
+                    <li class="active">
+                        <a href="htmls/home/txsign.html"> <i class="menu-icon fa fa-credit-card"></i>交易凭证签名</a>
+                    </li>
+                    <li >
+                        <a href="htmls/home/txpay.html"> <i class="menu-icon fa fa-edit"></i>交易凭证支付</a>
+                    </li>
+                    <li >
+                        <a href="htmls/home/txsearch.html"> <i class="menu-icon fa fa-search"></i>查询交易凭证</a>
+                    </li>       
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header ">
+                    <a class="navbar-brand ">Supply Chain Finance</a>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="header-menu">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ti-user"></span>
+                        </a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="/logout"><i class="fa fa-power -off"></i>注销</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- /#header -->
+
+        <div class="content">
+            <div class="animated fadeIn">
+                
+                <div class="row">
+
+                    <div class="col-8 m-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">凭证签名</strong>
+                            </div>
+                            <div class="card-body">
+                                <!-- Credit Card -->
+                                <div id="pay-invoice">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center">凭证及交易签名</h3>
+                                        </div>
+                                        <hr>
+                                        <div class="row"> 
+                                        <label for="cc-payment" class="control-label mb-1">凭证地址</label>
+                                        <div class="input-group mb-atuo">
+                                            <input type="text" class="form-control" placeholder="0x" aria-label="凭证地址" aria-describedby="button-addon2" id="txaddress">
+                                            <div class="input-group-append">
+                                                <button class="btn  btn-info " type="button"  ng-click="acceptTx()">确认签名</button>
+                                                <button class="btn  btn-warning " type="button"  ng-click="confirmTx()">证明签名</button>
+                                            </div>
+
+                                        </div>
+                                        </div>
+                            </div>
+                            <div class="form-message">
+                                            <div id="error_msg" class="text-center" ng-hide="hideError"></div>
+                                        </div>
+                        </div> <!-- .card -->
+
+                    </div><!--/.col-->
+                </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+    <div class="clearfix"></div>
+
+    <footer class="site-footer">
+        <div class="footer-inner bg-white">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6 text-right">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div><!-- /#right-panel -->
+
+<!-- Right Panel -->
+
+<!-- Scripts -->
+<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.matchHeight.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+</body>
+</html>
